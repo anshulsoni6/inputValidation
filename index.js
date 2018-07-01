@@ -16,7 +16,7 @@ module.exports = {
         return check
     },
     checkFileType: function (file, fileType) {
-        let check = { fail: true, msg: 'This file type is not supported', status: 400}
+        let check = { fail: true, msg: 'This file type is not supported', status: 400 }
         fileType.forEach((val) => {
             if (file.type.includes(val)) {
                 check.fail = false
@@ -42,6 +42,46 @@ module.exports = {
             throw check
         }
         return check
+    },
+    string: function (arr) {
+        let check = { fail: false, msg: 'Input is a string', status: 200 }
+        arr.forEach((val) => {
+            if (typeof val !== 'string') {
+                check.fail = true
+                check.msg = val + ' must be a string'
+                check.status = 400
+            }
+        })
+        if (check.fail) {
+            throw check
+        }
+        return check
+    },
+    number: function (arr) {
+        let check = { fail: false, msg: 'Input is a number', status: 200 }
+        arr.forEach((val) => {
+            if (typeof val !== 'number') {
+                check.fail = true
+                check.msg = val + ' must be a number'
+                check.status = 400
+            }
+        })
+        if (check.fail) {
+            throw check
+        }
+        return check
+    },
+    array: function (arr) {
+        let check = { fail: false, msg: 'Input is an array', status: 200 }
+        if (!(arr instanceof Array)) {
+            check.fail = true
+            check.msg = val + ' must be an array'
+            check.status = 400
+        }
+        if (check.fail) {
+            throw check
+        }
+        return check
     }
-
 }
+
