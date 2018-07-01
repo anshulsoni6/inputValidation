@@ -1,14 +1,14 @@
-    # inputValidation
-    input Validations for express and koa frameworks
+# Introduction
+  input Validations for express and koa frameworks
 
-    # Installation instructions
+# Installation instructions
 
-    npm install input-validations-js
+  npm install input-validations-js
 
-    # How to use this package
+# How to use this package
 
-    Currently, there are methods available through this package :
-```sh
+  Currently, there are methods available through this package :
+```javascript
 
     checkEmptyInput(arr, container)
     checkFileType(file, fileType)
@@ -17,7 +17,7 @@
 ```
 
     example:
-```sh
+```javascript
 
     router.post('/', (req, res) => {
         let arr = ['firstName', 'lastName', 'email'];
