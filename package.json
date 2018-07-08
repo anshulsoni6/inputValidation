@@ -1,11 +1,17 @@
 {
   "name": "input-validations-js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Anshul Soni",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anshulsoni6/inputValidation.git"
+  }
 }
+
+
