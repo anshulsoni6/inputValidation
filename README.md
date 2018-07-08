@@ -24,12 +24,12 @@
         let fieldName2 = 'url';
         let fieldName3 = 'email';
         let pattern = '/hello/g';
-        
+
         validate.checkRequiredFields(arr, container); // check required fields
         validate.checkFileType(file, fileType); // check uploading file type
         validate.string([req.body.firstName, req.body.listName]);
         validate.number([req.body.pinCode, req.body.phoneNo]);
-        validate.array(testArray); // checks if testArray is an array or not
+        validate.array(container.email, fieldName); // checks if testArray is an array or not
         validate.checkEmptyInput(arr, container); // checks if input is empty
         validate.boolean([req.body.newsletter, req.body.married]);// checks if input is of type boolean
         validate.allowOnly(container, arr); // allows given input fields only, in this case fields given in 'arr' array are allowed, if container contains other than these fields then error will be thrown    

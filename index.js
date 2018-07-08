@@ -75,11 +75,11 @@ module.exports = {
         })
         return check
     },
-    array: function (arr) {
+    array: function (arr, fieldName) {
         let check = { fail: false, msg: 'Input is an array', status: 200 }
         if (!(arr instanceof Array)) {
             check.fail = true
-            check.msg = val + ' must be an array'
+            check.msg = fieldName + ' must be an array'
             check.status = 400
             throw check
         }
@@ -87,10 +87,11 @@ module.exports = {
     },
     allowOnly: function (container, fields) {
         let check = { fail: false, msg: 'Valid input', status: 200 }
-        container.forEach((val) => {
+        let keyNames = Object.keys(container)
+        keyNames.forEach((key) => {
             if (fields.indexOf(key) === -1) {
                 check.fail = true
-                check.msg = val + ' not allowed in request'
+                check.msg = key + ' not allowed in request'
                 check.status = 400
                 throw check
             }
