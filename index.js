@@ -212,7 +212,8 @@ module.exports = {
     email: function (field, fieldName) {
         let check = { fail: false, msg: 'Valid email address', status: 200 }
 
-        let patt = '/^(([^<>()[]\.,;:s@"]+(.[^<>()[]\.,;:s@"]+)*)|(".+")) @(([[0 - 9]{ 1, 3}.[0 - 9]{ 1, 3}.[0 - 9]{ 1, 3}.[0 - 9]{ 1, 3}]) | (([a - zA - Z - 0 - 9] +.) + [a - zA - Z]{ 2,})) $ / igm'
+        let pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        let patt = new RegExp(pattern)
 
         if (!patt.test(field)) {
             check.fail = true
